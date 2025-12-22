@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# Env / secrets
+.env
+.env.*
+*.key
+*.json
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Data / artifacts
+data/
+outputs/
+embeddings/
+*.csv
+*.parquet
+
+# Logs
+*.log
+
+# Docker
+*.tar
