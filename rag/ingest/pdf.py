@@ -4,7 +4,6 @@ import pdfplumber
 from pypdf import PdfReader
 
 def extract_pdf_text(path: Path) -> str:
-    # Primary: pdfplumber (layout-aware)
     texts = []
     try:
         with pdfplumber.open(path) as pdf:
@@ -15,7 +14,6 @@ def extract_pdf_text(path: Path) -> str:
     except Exception:
         texts = []
 
-    # Fallback: pypdf
     if not texts:
         try:
             r = PdfReader(str(path))
