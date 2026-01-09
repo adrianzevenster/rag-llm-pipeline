@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RAG Personal UI</title>
+    <link rel="stylesheet" href="/static/chat/style.css" />
+</head>
+<body>
+<header class="topbar">
+    <div class="brand">RAG Personal UI</div>
+    <div class="muted small">Backend: <span class="mono">{{ backend_base_url }}</span></div>
+</header>
+
+<main class="container">
+    <section class="panel">
+        <div class="row">
+            <label class="small muted">Agent</label>
+            <input id="agent" class="input mono" value="{{ default_agent }}" />
+            <a class="small muted" href="/health">health</a>
+        </div>
+
+        <div id="chat-log" class="chat-log"></div>
+
+        <textarea id="message" class="textarea" placeholder="Type a prompt... (Ctrl/⌘ + Enter to send)"></textarea>
+
+        <div class="row actions">
+            <button id="send" class="btn">Send</button>
+            <div id="status" class="small muted"></div>
+        </div>
+    </section>
+</main>
+
+<script>
+    window.RAG_UI = {
+        chatApiUrl: "/api/chat",
+        csrfToken: "{{ csrf_token }}",
+    };
+</script>
+<script src="/static/chat/chat.js"></script>
+</body>
+</html>

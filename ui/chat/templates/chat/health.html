@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RAG Personal UI - Health</title>
+    <link rel="stylesheet" href="/static/chat/style.css" />
+</head>
+<body>
+<header class="topbar">
+    <div class="brand"><a href="/" style="color:inherit;text-decoration:none;">RAG Personal UI</a></div>
+</header>
+
+<main class="container">
+    <section class="panel">
+        <h2 style="margin:0 0 8px;">Backend Health</h2>
+        <div class="row">
+            <div>Status: <b>{% if result.ok %}OK{% else %}DOWN{% endif %}</b></div>
+            <div class="muted small">HTTP: {{ result.status_code }}</div>
+        </div>
+        <pre class="pre">{{ result.data|default:result.error }}</pre>
+    </section>
+</main>
+</body>
+</html>
